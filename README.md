@@ -13,7 +13,7 @@ After run docker compose for making db migrations and seed need to be enter dock
 docker-compose exec app bash
 ```
 
-After run docker compose for making db migrations and seed need to be enter docker container with this commands
+After enter docker container need to run these command to run project properly
 ```
 composer install
 php artisan migrate
