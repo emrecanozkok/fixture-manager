@@ -39,8 +39,7 @@ RUN docker-php-ext-install \
 	bcmath \
 	pcntl \
 	sysvsem \
-	sysvshm \
-	opcache
+	sysvshm
 
 RUN pecl install redis
 

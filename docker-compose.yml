@@ -36,7 +36,7 @@ services:
       - '33061:3306'
 
     environment:
-      - 'MYSQL_ROOT_PASSWORD=e7fb4255aab04b650707ad4043bd3c8c'
+      - 'MYSQL_ROOT_PASSWORD=${DB_PASSWORD}'
       - 'MYSQL_DATABASE=app'
 
   database-ui:
