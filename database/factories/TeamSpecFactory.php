@@ -26,7 +26,7 @@ class TeamSpecFactory extends Factory
     {
         return [
             'away_power' => rand(0,255),
-            'goolkeeper_power' => rand(0,255),
+            'goalkeeper_power' => rand(0,255),
             'supporter_power' => rand(0,255),
             'home_power' => rand(0,255),
         ];
