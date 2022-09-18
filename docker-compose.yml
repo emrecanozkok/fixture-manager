@@ -1,0 +1,56 @@
+version: '3.5'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: .docker/web.docker
+
+    volumes:
+      - ./:/var/www
+    ports:
+      - '8083:80'
+
+    links:
+      - app
+
+  app:
+    build:
+      context: ./
+      dockerfile: .docker/app.docker
+    volumes:
+      - ./:/var/www
+    links:
+      - database
+      - cache
+
+    environment:
+      - 'DB_PORT=3306'
+      - 'DB_HOST=database'
+      - 'REDIS_PORT=6379'
+      - 'REDIS_HOST=cache'
+
+  database:
+    image: mariadb:10.4
+    ports:
+      - '33061:3306'
+
+    environment:
+      - 'MYSQL_ROOT_PASSWORD=e7fb4255aab04b650707ad4043bd3c8c'
+      - 'MYSQL_DATABASE=app'
+
+  database-ui:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - '8084:80'
+    links:
+      - database
+    volumes:
+      - .docker/phpmyadmin_php.ini:/usr/local/etc/php/php.ini
+    environment:
+      - 'PMA_HOST=database'
+
+  cache:
+    image: redis:4.0.6
+    ports:
+      - '6379:6379'
