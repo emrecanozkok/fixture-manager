@@ -9,6 +9,8 @@ class Team extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['team_name','code','country_code'];
+
     public function specs()
     {
         return $this->hasOne(TeamSpec::class,'team_id','id');

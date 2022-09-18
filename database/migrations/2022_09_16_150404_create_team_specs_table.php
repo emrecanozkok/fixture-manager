@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('team_id')->unsigned();
             $table->tinyInteger('away_power')->default(0)->unsigned();
-            $table->tinyInteger('goolkeeper_power')->default(0)->unsigned();
+            $table->tinyInteger('goalkeeper_power')->default(0)->unsigned();
             $table->tinyInteger('supporter_power')->default(0)->unsigned();
             $table->tinyInteger('home_power')->default(0)->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');

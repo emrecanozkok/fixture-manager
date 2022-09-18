@@ -71,11 +71,11 @@ class SimulationService
     public function simulateMatch(Team $homeTeam, Team $awayTeam): array
     {
         $homeTeamPower = $homeTeam['specs']->home_power +
-            $homeTeam['specs']->goolkeeper_power +
+            $homeTeam['specs']->goalkeeper_power +
             $homeTeam['specs']->supporter_power;
 
         $awayTeamPower = $awayTeam['specs']->away_power +
-            $awayTeam['specs']->goolkeeper_power +
+            $awayTeam['specs']->goalkeeper_power +
             $awayTeam['specs']->supporter_power;
 
         $powerDiff = abs($homeTeamPower - $awayTeamPower);
